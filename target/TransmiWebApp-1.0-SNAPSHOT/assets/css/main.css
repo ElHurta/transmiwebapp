@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    font-family: "DM Sans";
+}
+
+h1{
+    font-family: "DM Sans";
+    font-weight: bold;
+}
+
+.hero_section{
+    font-family: "DM Sans";
+
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background: rgb(255,64,42);
+    background: linear-gradient(106deg, rgba(255,64,42,1) 0%, rgba(80,31,255,1) 100%);
+}
+
+.hero_section h1{
+    font-size: 5rem;
+    color: white;
+}
+
+.hero_section p{
+    color: white;
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.login_card{
+    background: white;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+
+    padding: 2rem 2rem;
+
+    -webkit-box-shadow: 5px 5px 17px 0px #000000;
+    box-shadow: 5px 5px 17px 0px #000000;
+}
+
+.login_card form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_card label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.login_card input[type="text"], input[type="password"]{
+    outline: none;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+
+    margin: 0.5rem 0;
+}
+
+.login_card button[type="submit"]{
+    cursor: pointer;
+
+    font-size: 1rem;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 15px;
+    width: 60%;
+    color: white;
+
+    margin: 1rem 0;
+
+    transition: background 0.5s ease-in-out;
+
+    background: rgb(241,68,42);
+    background: linear-gradient(106deg, rgb(243, 128, 128) 0%, rgb(241, 64, 64) 100%);
+    background-size:1px 200px;
+}
+
+.login_card button[type="submit"]:hover{
+
+    background-position:100px;
+}
+
