@@ -17,7 +17,7 @@ public class Conexion {
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/TransmiDB",
                     "root",
-                    "123"
+                    "1234"
             );
         }catch (ClassNotFoundException | SQLException ex){
             System.out.println(ex);

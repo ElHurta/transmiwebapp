@@ -8,14 +8,13 @@ import model.Parada;
 import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 @WebServlet(name = "loginServlet", value = "/loginServlet")
 public class loginServlet extends HttpServlet {
-
-    private final Gson gson = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -27,10 +26,14 @@ public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         if(usuarioDAO.iniciarSesion(req.getParameter("username_login"), req.getParameter("password_login"))){
-            System.out.println("Loggeado Master");
+            resp.sendRedirect(req.getContextPath() + "/mainView.jsp");
+            HttpSession misession= req.getSession(true);
+            misession.setAttribute("Logged", true);
+
         } else {
             System.out.println("F");
         }
+
     }
 
     public void destroy() {
