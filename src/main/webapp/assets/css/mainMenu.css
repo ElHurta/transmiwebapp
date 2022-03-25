@@ -1,6 +1,6 @@
 nav {
-    background: #fd1e1e;
-    height: 10vh;
+    background: #fc4242;
+    height: 8vh;
     position: fixed;
     width: 100%;
     text-align: center;
@@ -33,6 +33,10 @@ nav ul li a:hover {
 .main_section {
     height: 100vh;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .welcome_title{
@@ -55,6 +59,11 @@ nav ul li a:hover {
     width: 5rem;
     height: 5rem;
     cursor: pointer;
+    transition: transform 0.2s ease-in;
+}
+
+.menu_card:hover{
+    transform: scale(1.2);
 }
 
 .menu_card img{

@@ -2,15 +2,15 @@ package model;
 
 public class Bus {
     private String placa_bus;
-    private int cap_bus;
-    private String tipo_bus;
+    private int capBus;
+    private String tipoBus;
 
     private Ruta ruta;
 
-    public Bus(String placa_bus, int cap_bus, String tipo_bus, Ruta ruta) {
+    public Bus(String placa_bus, int capBus, String tipoBus, Ruta ruta) {
         this.placa_bus = placa_bus;
-        this.cap_bus = cap_bus;
-        this.tipo_bus = tipo_bus;
+        this.capBus = capBus;
+        this.tipoBus = tipoBus;
         this.ruta = ruta;
     }
 
@@ -22,20 +22,20 @@ public class Bus {
         this.placa_bus = placa_bus;
     }
 
-    public int getCap_bus() {
-        return cap_bus;
+    public int getCapBus() {
+        return capBus;
     }
 
-    public void setCap_bus(int cap_bus) {
-        this.cap_bus = cap_bus;
+    public void setCapBus(int capBus) {
+        this.capBus = capBus;
     }
 
-    public String getTipo_bus() {
-        return tipo_bus;
+    public String getTipoBus() {
+        return tipoBus;
     }
 
-    public void setTipo_bus(String tipo_bus) {
-        this.tipo_bus = tipo_bus;
+    public void setTipoBus(String tipoBus) {
+        this.tipoBus = tipoBus;
     }
 
     public Ruta getRuta() {

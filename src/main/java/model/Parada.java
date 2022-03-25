@@ -1,37 +1,37 @@
 package model;
 
 public class Parada {
-    private int id_parada;
-    private String n_parada;
-    private String tipo_parada;
+    private int idParada;
+    private String nParada;
+    private String tipoParada;
 
-    public Parada(int id_parada, String n_parada, String tipo_parada) {
-        this.id_parada = id_parada;
-        this.n_parada = n_parada;
-        this.tipo_parada = tipo_parada;
+    public Parada(int idParada, String nParada, String tipo_parada) {
+        this.idParada = idParada;
+        this.nParada = nParada;
+        this.tipoParada = tipo_parada;
     }
 
-    public int getId_parada() {
-        return id_parada;
+    public int getIdParada() {
+        return idParada;
     }
 
-    public void setId_parada(int id_parada) {
-        this.id_parada = id_parada;
+    public void setIdParada(int idParada) {
+        this.idParada = idParada;
     }
 
-    public String getN_parada() {
-        return n_parada;
+    public String getnParada() {
+        return nParada;
     }
 
-    public void setN_parada(String n_parada) {
-        this.n_parada = n_parada;
+    public void setnParada(String nParada) {
+        this.nParada = nParada;
     }
 
-    public String getTipo_parada() {
-        return tipo_parada;
+    public String getTipoParada() {
+        return tipoParada;
     }
 
-    public void setTipo_parada(String tipo_parada) {
-        this.tipo_parada = tipo_parada;
+    public void setTipoParada(String tipoParada) {
+        this.tipoParada = tipoParada;
     }
 }

@@ -1,14 +1,8 @@
 package com.hurtado.transmiwebapp;
 
-import com.google.gson.Gson;
 import data.DAO.UsuarioDAO;
-import data.Operaciones;
-import model.Parada;
 
 import java.io.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -17,23 +11,24 @@ import javax.servlet.annotation.*;
 public class loginServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PrintWriter out = response.getWriter();
-        out.write("Hola");
-    }
-
-    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        if(usuarioDAO.iniciarSesion(req.getParameter("username_login"), req.getParameter("password_login"))){
+        if(req.getParameter("username_login").isEmpty() && req.getParameter("password_login").isEmpty()){
             resp.sendRedirect(req.getContextPath() + "/mainView.jsp");
             HttpSession misession= req.getSession(true);
-            misession.setAttribute("Logged", true);
-
+            misession.setAttribute("Logged", "no_credentials");
         } else {
-            System.out.println("F");
-        }
+            if(usuarioDAO.iniciarSesion(req.getParameter("username_login"), req.getParameter("password_login"))){
+                resp.sendRedirect(req.getContextPath() + "/mainView.jsp");
+                HttpSession misession= req.getSession(true);
+                misession.setAttribute("Logged", "true");
 
+            } else {
+                resp.sendRedirect(req.getContextPath() + "/mainView.jsp");
+                HttpSession misession= req.getSession(true);
+                misession.setAttribute("Logged", "false");
+            }
+        }
     }
 
     public void destroy() {

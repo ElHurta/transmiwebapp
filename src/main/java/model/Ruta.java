@@ -1,47 +1,47 @@
 package model;
 
 public class Ruta {
-    private int id_ruta;
-    private String n_ruta;
-    private String hora_ini_ruta;
-    private String hora_end_ruta;
+    private int idRuta;
+    private String nRuta;
+    private String horaIniRuta;
+    private String horaEndRuta;
 
-    public Ruta(int id_ruta, String n_ruta, String hora_ini_ruta, String hora_end_ruta) {
-        this.id_ruta = id_ruta;
-        this.n_ruta = n_ruta;
-        this.hora_ini_ruta = hora_ini_ruta;
-        this.hora_end_ruta = hora_end_ruta;
+    public Ruta(int idRuta, String nRuta, String hora_ini_ruta, String horaEndRuta) {
+        this.idRuta = idRuta;
+        this.nRuta = nRuta;
+        this.horaIniRuta = hora_ini_ruta;
+        this.horaEndRuta = horaEndRuta;
     }
 
-    public int getId_ruta() {
-        return id_ruta;
+    public int getIdRuta() {
+        return idRuta;
     }
 
-    public void setId_ruta(int id_ruta) {
-        this.id_ruta = id_ruta;
+    public void setIdRuta(int idRuta) {
+        this.idRuta = idRuta;
     }
 
-    public String getN_ruta() {
-        return n_ruta;
+    public String getnRuta() {
+        return nRuta;
     }
 
-    public void setN_ruta(String n_ruta) {
-        this.n_ruta = n_ruta;
+    public void setnRuta(String nRuta) {
+        this.nRuta = nRuta;
     }
 
-    public String getHora_ini_ruta() {
-        return hora_ini_ruta;
+    public String getHoraIniRuta() {
+        return horaIniRuta;
     }
 
-    public void setHora_ini_ruta(String hora_ini_ruta) {
-        this.hora_ini_ruta = hora_ini_ruta;
+    public void setHoraIniRuta(String horaIniRuta) {
+        this.horaIniRuta = horaIniRuta;
     }
 
-    public String getHora_end_ruta() {
-        return hora_end_ruta;
+    public String getHoraEndRuta() {
+        return horaEndRuta;
     }
 
-    public void setHora_end_ruta(String hora_end_ruta) {
-        this.hora_end_ruta = hora_end_ruta;
+    public void setHoraEndRuta(String horaEndRuta) {
+        this.horaEndRuta = horaEndRuta;
     }
 }

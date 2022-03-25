@@ -18,55 +18,55 @@
     <link rel="stylesheet" href="./assets/css/mainMenu.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Clientes</a></li>
-            <li><a href="/">Tarjetas</a></li>
-            <li><a href="/">Rutas</a></li>
-            <li><a href="/">Paradas</a></li>
-            <li><a href="/">Buses</a></li>
-        </ul>
-    </nav>
+    <%@include file='templates/navbar.html'%>
     <section class="main_section">
-        <h1 class="welcome_title">Bienvenid@</h1>
-        <div class="menu_grid">
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Clientes</p>
-            </div>
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Tarjetas</p>
-            </div>
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Rutas</p>
-            </div>
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Paradas</p>
-            </div>
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Buses</p>
-            </div>
-
-            <div class="menu_card">
-                <img src="assets/img/bus.svg">
-                <p>Buses</p>
-            </div>
-        </div>
         <c:choose>
-            <c:when test = "${sessionScope.Logged==true}">
-                <h2>AAAA</h2>
+            <c:when test = "${sessionScope.Logged=='true'}">
+                <h1 class="welcome_title">Bienvenid@</h1>
+                <div class="menu_grid">
+
+                    <div class="menu_card">
+                        <img src="assets/img/bus.svg">
+                        <p>Clientes</p>
+                    </div>
+
+                    <div class="menu_card">
+                        <img src="assets/img/tarjeta.svg">
+                        <p>Tarjetas</p>
+                    </div>
+
+                    <div class="menu_card">
+                        <img src="assets/img/ruta.svg">
+                        <p>Rutas</p>
+                    </div>
+
+                    <div class="menu_card">
+                        <img src="assets/img/parada.svg">
+                        <p>Paradas</p>
+                    </div>
+
+                    <div class="menu_card">
+                        <img src="assets/img/persona.svg">
+                        <p>Cliente</p>
+                    </div>
+
+                    <div class="menu_card">
+                        <img src="assets/img/bus.svg">
+                        <p>Buses</p>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${sessionScope.Logged=='false'}">
+                <div class="login_warning">
+                    <h1 class="welcome_title">Datos de inicio de sesión incorrectos. Inténtalo nuevamente ❤</h1>
+                    <a href="${pageContext.request.contextPath}/">Volver al Login</a>
+                </div>
             </c:when>
             <c:otherwise>
-                null
+                <div class="login_warning">
+                    <h1 class="welcome_title">Por favor Inicia Sesión Para poder continuar</h1>
+                    <a href="${pageContext.request.contextPath}/">Volver al Login</a>
+                </div>
             </c:otherwise>
         </c:choose>
     </section>

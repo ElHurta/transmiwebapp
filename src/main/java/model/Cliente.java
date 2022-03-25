@@ -1,37 +1,37 @@
 package model;
 
 public class Cliente {
-    private String id_cliente;
-    private String n_cliente;
-    private String apel_cliente;
+    private String idCliente;
+    private String nCliente;
+    private String apelCliente;
 
-    public Cliente(String id_cliente, String n_cliente, String apel_cliente) {
-        this.id_cliente = id_cliente;
-        this.n_cliente = n_cliente;
-        this.apel_cliente = apel_cliente;
+    public Cliente(String idCliente, String nCliente, String apelCliente) {
+        this.idCliente = idCliente;
+        this.nCliente = nCliente;
+        this.apelCliente = apelCliente;
     }
 
-    public String getId_cliente() {
-        return id_cliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_cliente(String id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public String getN_cliente() {
-        return n_cliente;
+    public String getnCliente() {
+        return nCliente;
     }
 
-    public void setN_cliente(String n_cliente) {
-        this.n_cliente = n_cliente;
+    public void setnCliente(String nCliente) {
+        this.nCliente = nCliente;
     }
 
-    public String getApel_cliente() {
-        return apel_cliente;
+    public String getApelCliente() {
+        return apelCliente;
     }
 
-    public void setApel_cliente(String apel_cliente) {
-        this.apel_cliente = apel_cliente;
+    public void setApelCliente(String apelCliente) {
+        this.apelCliente = apelCliente;
     }
 }

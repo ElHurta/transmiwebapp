@@ -1,43 +1,43 @@
 package model;
 
 public class Torniquete {
-    private int id_torniquete;
-    private String est_torniquete;
+    private int idTorniquete;
+    private String estTorniquete;
 
     private Bus bus;
     private Parada Parada;
 
-    public Torniquete(int id_torniquete, String est_torniquete, Bus bus) {
-        this.id_torniquete = id_torniquete;
-        this.est_torniquete = est_torniquete;
+    public Torniquete(int idTorniquete, String estTorniquete, Bus bus) {
+        this.idTorniquete = idTorniquete;
+        this.estTorniquete = estTorniquete;
         this.bus = bus;
     }
 
-    public Torniquete(int id_torniquete, String est_torniquete, model.Parada parada) {
-        this.id_torniquete = id_torniquete;
-        this.est_torniquete = est_torniquete;
+    public Torniquete(int idTorniquete, String estTorniquete, model.Parada parada) {
+        this.idTorniquete = idTorniquete;
+        this.estTorniquete = estTorniquete;
         Parada = parada;
     }
 
-    public Torniquete(int id_torniquete, String est_torniquete) {
-        this.id_torniquete = id_torniquete;
-        this.est_torniquete = est_torniquete;
+    public Torniquete(int idTorniquete, String estTorniquete) {
+        this.idTorniquete = idTorniquete;
+        this.estTorniquete = estTorniquete;
     }
 
-    public int getId_torniquete() {
-        return id_torniquete;
+    public int getIdTorniquete() {
+        return idTorniquete;
     }
 
-    public void setId_torniquete(int id_torniquete) {
-        this.id_torniquete = id_torniquete;
+    public void setIdTorniquete(int idTorniquete) {
+        this.idTorniquete = idTorniquete;
     }
 
-    public String getEst_torniquete() {
-        return est_torniquete;
+    public String getEstTorniquete() {
+        return estTorniquete;
     }
 
-    public void setEst_torniquete(String est_torniquete) {
-        this.est_torniquete = est_torniquete;
+    public void setEstTorniquete(String estTorniquete) {
+        this.estTorniquete = estTorniquete;
     }
 
     public Bus getBus() {
