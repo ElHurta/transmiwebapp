@@ -1,0 +1,9 @@
+.queryTable{
+    max-height: 70vh;
+    text-align: center;
+    width: 60%;
+    overflow-y: auto;
+    font-family: "DM Sans";
+    border-collapse: separate;
+    border-spacing: 15px;
+}
