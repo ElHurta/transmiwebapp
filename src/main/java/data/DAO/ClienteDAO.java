@@ -40,6 +40,7 @@ public class ClienteDAO {
             preparedStatement.setString(3, clienteInsert.getApelCliente());
 
             preparedStatement.executeUpdate();
+            return "Inserción Completada con éxito";
         } catch (SQLException ex){
             System.out.println(ex);
         }

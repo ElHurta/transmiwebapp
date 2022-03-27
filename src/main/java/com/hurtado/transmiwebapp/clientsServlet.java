@@ -45,7 +45,9 @@ public class clientsServlet extends HttpServlet {
                         request.getParameter("client_apel_ins"));
 
                 ClienteDAO clienteDAO = new ClienteDAO();
-                clienteDAO.insertCliente(clienteInsert);
+                response.getWriter().write("<h1>Inserción realizada</h1>");
+                response.getWriter().write("<a href='/clientsServlet'>Regresar al Sitio</a>");
+
             }
         } else{
             response.sendRedirect("/mainView.jsp");
