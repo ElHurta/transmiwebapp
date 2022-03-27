@@ -14,6 +14,12 @@ public class Bus {
         this.ruta = ruta;
     }
 
+    public Bus(String placa_bus, int capBus, String tipoBus) {
+        this.placa_bus = placa_bus;
+        this.capBus = capBus;
+        this.tipoBus = tipoBus;
+    }
+
     public String getPlaca_bus() {
         return placa_bus;
     }

@@ -16,6 +16,8 @@
     <title>Clientes - TransmiApp</title>
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/clients.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+
 </head>
 <body>
 <%@include file='templates/navbar.html'%>
@@ -43,6 +45,42 @@
                     </tr>
                 </c:forEach>
             </table>
+
+            <%-- Ingresar Y Actualizar --%>
+            <div class="op_container">
+                <button id="btnModIngCliente">Crear Cliente</button>
+            </div>
+
+            <div id="ingClientModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close" id="closeIngClientModal">&times;</span>
+                    <div class="modal_form_container">
+                        <h1> Registro De Clientes: </h1>
+                        <p>Por favor diligencie los siguientes campos</p>
+
+                        <form action="${pageContext.request.contextPath}/clientsServlet" method="post">
+                            <input type="hidden" value="insert" name="operation_type" id="operation_type">
+
+                            <label for="client_id_ins">Número de Identificación</label>
+                            <input required type="text" name="client_id_ins" id="client_id_ins">
+
+                            <label for="client_nom_ins">Nombres Del Cliente</label>
+                            <input required type="text" name="client_nom_ins" id="client_nom_ins">
+
+                            <label for="client_apel_ins">Apellidos del Cliente</label>
+                            <input required type="text" name="client_apel_ins" id="client_apel_ins">
+
+                            <button type="submit">Registrar Datos</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </c:when>
         <c:when test="${sessionScope.Logged=='false'}">
             <div class="login_warning">
@@ -58,5 +96,6 @@
         </c:otherwise>
     </c:choose>
 </section>
+<script src="js/modals.js"></script>
 </body>
 </html>

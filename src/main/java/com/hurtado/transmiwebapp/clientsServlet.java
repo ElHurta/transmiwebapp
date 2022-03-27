@@ -35,6 +35,20 @@ public class clientsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession misession = request.getSession();
 
+        if(misession.getAttribute("Logged") != null){
+            if(request.getParameter("operation_type").equals("insert")){
+                Cliente clienteInsert = new Cliente(
+                        request.getParameter("client_id_ins"),
+                        request.getParameter("client_nom_ins"),
+                        request.getParameter("client_apel_ins"));
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+                clienteDAO.insertCliente(clienteInsert);
+            }
+        } else{
+            response.sendRedirect("/mainView.jsp");
+        }
     }
 }

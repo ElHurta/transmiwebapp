@@ -26,33 +26,45 @@
                 <div class="menu_grid">
 
                     <div class="menu_card">
-                        <img src="assets/img/bus.svg">
-                        <p>Clientes</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/bus.svg">
+                            <p>Buses</p>
+                        </a>
                     </div>
 
                     <div class="menu_card">
-                        <img src="assets/img/tarjeta.svg">
-                        <p>Tarjetas</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/tarjeta.svg">
+                            <p>Tarjetas</p>
+                        </a>
                     </div>
 
                     <div class="menu_card">
-                        <img src="assets/img/ruta.svg">
-                        <p>Rutas</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/ruta.svg">
+                            <p>Rutas</p>
+                        </a>
                     </div>
 
                     <div class="menu_card">
-                        <img src="assets/img/parada.svg">
-                        <p>Paradas</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/parada.svg">
+                            <p>Paradas</p>
+                        </a>
                     </div>
 
                     <div class="menu_card">
-                        <img src="assets/img/persona.svg">
-                        <p>Cliente</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/persona.svg">
+                            <p>Clientes</p>
+                        </a>
                     </div>
 
                     <div class="menu_card">
-                        <img src="assets/img/bus.svg">
-                        <p>Buses</p>
+                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                            <img src="assets/img/bus.svg">
+                            <p>Buses</p>
+                        </a>
                     </div>
                 </div>
             </c:when>

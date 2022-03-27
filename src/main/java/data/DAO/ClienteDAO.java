@@ -1,8 +1,10 @@
 package data.DAO;
 
+import data.Conexion;
 import data.Operaciones;
 import model.Cliente;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,5 +28,21 @@ public class ClienteDAO {
             System.out.println(ex);
         }
         return clientsArray;
+    }
+
+    public String insertCliente(Cliente clienteInsert){
+        try{
+            PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO cliente VALUES(?,?,?);");
+
+            preparedStatement.setString(1, clienteInsert.getIdCliente());
+            preparedStatement.setString(2, clienteInsert.getnCliente());
+            preparedStatement.setString(3, clienteInsert.getApelCliente());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return "No fue posible realizar la inserción del cliente, intentélo nuevamente";
     }
 }

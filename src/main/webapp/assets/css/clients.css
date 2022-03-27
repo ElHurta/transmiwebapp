@@ -5,5 +5,8 @@
     overflow-y: auto;
     font-family: "DM Sans";
     border-collapse: separate;
-    border-spacing: 15px;
+    border-spacing: 0 15px;
+
+    font-size: 1.2rem;
+    margin: 5rem 0;
 }
