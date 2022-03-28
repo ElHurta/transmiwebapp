@@ -30,6 +30,19 @@ public class ClienteDAO {
         return clientsArray;
     }
 
+    public Cliente queryOneClient(String clientID){
+        try {
+            ResultSet resultSet = op.ConsultaEsp("SELECT * FROM Cliente WHERE id_cliente="+clientID);
+            if(resultSet.next()){
+                return new Cliente(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3));
+            }
+
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+
     public String insertCliente(Cliente clienteInsert){
         try{
             PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
@@ -46,4 +59,6 @@ public class ClienteDAO {
         }
         return "No fue posible realizar la inserción del cliente, intentélo nuevamente";
     }
+
+
 }

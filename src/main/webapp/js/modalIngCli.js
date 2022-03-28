@@ -3,13 +3,13 @@ const modalIngCli = document.getElementById("ingClientModal");
 
 const btnModIngCli = document.getElementById("btnModIngCliente");
 
-const span = document.getElementById("closeIngClientModal");
+const spanIngCli = document.getElementById("closeIngClientModal");
 
 btnModIngCli.onclick = function() {
     modalIngCli.style.display = "block";
 }
 
-span.onclick = function() {
+spanIngCli.onclick = function() {
     modalIngCli.style.display = "none";
 }
 

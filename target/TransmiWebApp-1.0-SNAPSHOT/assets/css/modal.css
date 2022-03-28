@@ -9,6 +9,8 @@
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+
+    font-family: "DM Sans";
 }
 
 /* Modal Content/Box */
@@ -16,8 +18,45 @@
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 15px;
     width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal_form_container{
+    text-align: center;
+    font-family: "DM Sans";
+}
+
+.modal_form_container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.modal_form_container form label, button{
+    margin-top: 1.2rem;
+    font-weight: bold;
+}
+
+.modal_form_container form button{
+    outline: none;
+    background-color: #fc4242;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+
+
+    font-family: "DM Sans";
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s ease-in;
+}
+
+.modal_form_container form button:hover{
+    transform: scale(1.1);
 }
 
 /* The Close Button */

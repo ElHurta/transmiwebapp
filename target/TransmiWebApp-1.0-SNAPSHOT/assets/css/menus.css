@@ -1,0 +1,48 @@
+.info_container{
+    width: 100%;
+    max-height: 50vh;
+    overflow-y: auto;
+    margin: 2rem 0;
+}
+.queryTable{
+    max-height: 70vh;
+    text-align: center;
+    width: 60%;
+    overflow-y: auto;
+    font-family: "DM Sans";
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    font-size: 1.2rem;
+    margin: 0rem auto;
+}
+
+.op_container button{
+    outline: none;
+    background-color: #fc4242;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+
+    font-family: "DM Sans";
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s ease-in;
+}
+
+.op_container button:hover{
+    transform: scale(1.1);
+}
+
+.editBtn{
+    border: none;
+    outline: none;
+
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 1.2rem;
+    margin-top: 0;
+}

@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes - TransmiApp</title>
     <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/clients.css">
+    <link rel="stylesheet" href="assets/css/menus.css">
     <link rel="stylesheet" href="assets/css/modal.css">
 
 </head>
@@ -26,25 +26,27 @@
         <c:when test = "${sessionScope.Logged=='true'}">
             <h1 class="welcome_title">Clientes Registrados: </h1>
             <div class="info_container">
-
-            </div>
-            <table class="queryTable">
-                <!-- Cabeceras -->
-                <tr>
-                    <th>Identificación</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                </tr>
-
-                <!-- Cuerpo -->
-                <c:forEach var="row" items="${clientesList}">
+                <table class="queryTable">
+                    <!-- Cabeceras -->
                     <tr>
-                        <td><c:out value="${row.idCliente}"/></td>
-                        <td><c:out value="${row.nCliente}"/></td>
-                        <td><c:out value="${row.apelCliente}"/></td>
+                        <th>Identificación</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Editar</th>
                     </tr>
-                </c:forEach>
-            </table>
+
+                    <!-- Cuerpo -->
+                    <c:forEach var="row" items="${clientesList}">
+                        <tr>
+                            <td><c:out value="${row.idCliente}"/></td>
+                            <td><c:out value="${row.nCliente}"/></td>
+                            <td><c:out value="${row.apelCliente}"/></td>
+                            <td><button class="editBtn btnModActCliente">🖋️</button></td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+
 
             <%-- Ingresar Y Actualizar --%>
             <div class="op_container">
@@ -52,8 +54,7 @@
             </div>
 
             <div id="ingClientModal" class="modal">
-
-                <!-- Modal content -->
+                <!-- Modal De Creación De Clientes -->
                 <div class="modal-content">
                     <span class="close" id="closeIngClientModal">&times;</span>
                     <div class="modal_form_container">
@@ -81,6 +82,38 @@
 
             </div>
 
+            <div id="actClientModal" class="modal">
+                <!-- Modal De Creación De Clientes -->
+                <div class="modal-content">
+                    <span class="close" id="closeActClientModal">&times;</span>
+                    <div class="modal_form_container">
+                        <h1> Actualización De Clientes: </h1>
+                        <p>Por favor diligencie los siguientes campos</p>
+
+                        <form action="${pageContext.request.contextPath}/clientsServlet" method="post">
+                            <input type="hidden" value="update" name="operation_type">
+
+                            <label for="client_id_upd">Número de Identificación Seleccionado</label>
+                            <input disabled type="text" name="client_id_upd" id="client_id_upd">
+
+                            <label for="new_client_id_upd">Número de Identificación</label>
+                            <input required type="text" name="new_client_id_upd" id="new_client_id_upd">
+
+                            <label for="client_nom_upd">Nombres Del Cliente</label>
+                            <input required type="text" name="client_nom_upd" id="client_nom_upd">
+
+                            <label for="client_apel_upd">Apellidos del Cliente</label>
+                            <input required type="text" name="client_apel_upd" id="client_apel_upd">
+
+                            <button type="submit">Registrar Datos</button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </c:when>
         <c:when test="${sessionScope.Logged=='false'}">
             <div class="login_warning">
@@ -96,6 +129,7 @@
         </c:otherwise>
     </c:choose>
 </section>
-<script src="js/modals.js"></script>
+<script src="js/modalIngCli.js"></script>
+<script src="js/modalUpdCli.js"></script>
 </body>
 </html>
