@@ -60,5 +60,23 @@ public class ClienteDAO {
         return "No fue posible realizar la inserción del cliente, intentélo nuevamente";
     }
 
+    public String updateCliente(Cliente clienteUpdate, String idCliente){
+        try {
+            PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
+                    "UPDATE Cliente SET id_cliente = ?, n_cliente = ?, apel_cliente = ?" +
+                            " WHERE id_cliente = ?");
 
+            preparedStatement.setString(1, clienteUpdate.getIdCliente());
+            preparedStatement.setString(2, clienteUpdate.getnCliente());
+            preparedStatement.setString(3, clienteUpdate.getApelCliente());
+            preparedStatement.setString(4, idCliente);
+
+            preparedStatement.executeUpdate();
+            return "Actualización realizada Exitosamente";
+
+        }catch (Exception e){
+            System.out.println(e + " Error en actualizacion de Cliente");
+        }
+        return "Error al realizar la actualización";
+    }
 }

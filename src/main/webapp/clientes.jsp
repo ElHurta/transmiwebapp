@@ -94,7 +94,7 @@
                             <input type="hidden" value="update" name="operation_type">
 
                             <label for="client_id_upd">Número de Identificación Seleccionado</label>
-                            <input disabled type="text" name="client_id_upd" id="client_id_upd">
+                            <input readonly type="text" name="client_id_upd" id="client_id_upd">
 
                             <label for="new_client_id_upd">Número de Identificación</label>
                             <input required type="text" name="new_client_id_upd" id="new_client_id_upd">

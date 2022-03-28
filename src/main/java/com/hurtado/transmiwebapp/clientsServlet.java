@@ -24,13 +24,11 @@ public class clientsServlet extends HttpServlet {
                 ClienteDAO clienteDAO = new ClienteDAO();
 
                 if(request.getParameter("clientId")!=null){
-                    System.out.println("Obtenido: "+ request.getParameter("clientId"));
-
 
                     String clientObtained = new Gson().toJson(clienteDAO.queryOneClient(request.getParameter("clientId")));
                     PrintWriter out = response.getWriter();
                     response.setContentType("application/json");
-                    System.out.println(clientObtained);
+
                     out.print(clientObtained);
                 } else {
                     ArrayList<Cliente> clientesList = clienteDAO.queryAllClients();
@@ -60,8 +58,19 @@ public class clientsServlet extends HttpServlet {
                         request.getParameter("client_apel_ins"));
 
                 ClienteDAO clienteDAO = new ClienteDAO();
-                clienteDAO.insertCliente(clienteInsert);
-                response.getWriter().write("<h1>Inserción realizada</h1>");
+
+                response.getWriter().write("<h1>"+clienteDAO.insertCliente(clienteInsert)+"</h1>");
+                response.getWriter().write("<a href='/clientsServlet'>Regresar al Sitio</a>");
+            } else if(request.getParameter("operation_type").equals("update")){
+                Cliente clienteUpdate = new Cliente(
+                        request.getParameter("new_client_id_upd"),
+                        request.getParameter("client_nom_upd"),
+                        request.getParameter("client_apel_upd")
+                );
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+
+                response.getWriter().write("<h1>"+clienteDAO.updateCliente(clienteUpdate, request.getParameter("client_id_upd"))+"</h1>");
                 response.getWriter().write("<a href='/clientsServlet'>Regresar al Sitio</a>");
             }
         } else{

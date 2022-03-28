@@ -16,10 +16,12 @@ for (let i = 0; i < btnModActCli.length; i++) {
                 if(this.responseText!=='null'){
                     let clienteObt = JSON.parse(this.responseText);
                     document.getElementById("client_id_upd").value = clienteObt.idCliente;
+                    document.getElementById("new_client_id_upd").value = clienteObt.idCliente;
                     document.getElementById("client_nom_upd").value = clienteObt.nCliente;
                     document.getElementById("client_apel_upd").value = clienteObt.apelCliente;
                 } else {
                     document.getElementById("client_id_upd").value = "";
+                    document.getElementById("new_client_id_upd").value = "";
                     document.getElementById("client_nom_upd").value = "";
                     document.getElementById("client_apel_upd").value = "";
                 }
