@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="menu_card">
-                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                        <a href="${pageContext.request.contextPath}/tarjetaServlet">
                             <img src="assets/img/tarjeta.svg">
                             <p>Tarjetas</p>
                         </a>
@@ -62,8 +62,8 @@
 
                     <div class="menu_card">
                         <a href="${pageContext.request.contextPath}/clientsServlet">
-                            <img src="assets/img/bus.svg">
-                            <p>Buses</p>
+                            <img src="assets/img/torniquete.svg">
+                            <p>Torniquetes</p>
                         </a>
                     </div>
                 </div>

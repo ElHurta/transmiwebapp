@@ -38,9 +38,9 @@
                     <!-- Cuerpo -->
                     <c:forEach var="row" items="${clientesList}">
                         <tr>
-                            <td><c:out value="${row.idCliente}"/></td>
-                            <td><c:out value="${row.nCliente}"/></td>
-                            <td><c:out value="${row.apelCliente}"/></td>
+                            <td><c:out value="${row.getIdCliente()}"/></td>
+                            <td><c:out value="${row.getnCliente()}"/></td>
+                            <td><c:out value="${row.getApelCliente()}"/></td>
                             <td><button class="editBtn btnModActCliente">🖋️</button></td>
                         </tr>
                     </c:forEach>
