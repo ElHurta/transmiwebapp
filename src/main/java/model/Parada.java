@@ -11,6 +11,11 @@ public class Parada {
         this.tipoParada = tipo_parada;
     }
 
+    public Parada(String nParada, String tipoParada) {
+        this.nParada = nParada;
+        this.tipoParada = tipoParada;
+    }
+
     public int getIdParada() {
         return idParada;
     }

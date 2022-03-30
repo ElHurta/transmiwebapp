@@ -1,4 +1,4 @@
-// Modal Ingreso Clientes
+// Modal Inserción Tarjetas
 const modalIngTar = document.getElementById("ingTarjModal");
 
 const btnModIngTar = document.getElementById("btnModIngTarjeta");

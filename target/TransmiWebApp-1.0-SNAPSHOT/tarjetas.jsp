@@ -117,7 +117,7 @@
                             <label for="tarjeta_est_upd">Estado De La Tarjeta</label>
                             <select name="tarjeta_est_upd" id="tarjeta_est_upd">
                                 <option selected value="activo">Activo</option>
-                                <option value="activo">Inactiva</option>
+                                <option value="inactiva">Inactivo</option>
                             </select>
 
                             <button type="submit">Actualizar Datos</button>

@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransmiApp</title>
     <link rel="stylesheet" href="./assets/css/main.css">
-    <script src="./js/requestTest.js"></script>
 </head>
 
 <body>
@@ -28,7 +27,6 @@
                 <button type="submit">Ingresar</button>
             </form>
         </div>
-<%--        <button onclick="UserAction()">Probar</button>--%>
     </section>
 </body>
 </html>

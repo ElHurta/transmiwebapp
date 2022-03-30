@@ -18,6 +18,8 @@ for (let i = 0; i < btnModActTar.length; i++) {
                 if(this.responseText!=='null'){
                     let tarjetaObt = JSON.parse(this.responseText);
                     document.getElementById("tarjeta_id_upd").value = tarjetaObt.idTarjeta;
+                    document.getElementById("tarjeta_sald_upd").value = tarjetaObt.saldoTarjeta;
+                    document.getElementById("tarjeta_est_upd").value = tarjetaObt.estTarjeta;
 
                     let option = document.createElement("option");
                     option.value = tarjetaObt.cliente.idCliente;
