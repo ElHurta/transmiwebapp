@@ -43,6 +43,26 @@ public class ClienteDAO {
         return null;
     }
 
+    public ArrayList<Cliente> queryAllClientsWithoutCard(){
+        ArrayList<Cliente> clientsArray = new ArrayList<>();
+        try {
+            ResultSet resultSet = op.ConsultaEsp("SELECT DISTINCT cliente.id_cliente\n" +
+                    "FROM cliente LEFT JOIN tarjeta ON cliente.id_cliente = tarjeta.id_cliente\n" +
+                    "WHERE tarjeta.id_cliente IS NULL");
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+
+            while(resultSet.next()){
+                Cliente clienteTar = clienteDAO.queryOneClient(resultSet.getString(1));
+                clientsArray.add(clienteTar);
+            }
+
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return clientsArray;
+    }
+
     public String insertCliente(Cliente clienteInsert){
         try{
             PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(

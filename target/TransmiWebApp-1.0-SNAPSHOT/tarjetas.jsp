@@ -43,7 +43,7 @@
                             <td><c:out value="${row.getCliente().getIdCliente()} - ${row.getCliente().getnCliente()} ${row.getCliente().getApelCliente()}"/></td>
                             <td><c:out value="${row.getSaldoTarjeta()}"/></td>
                             <td><c:out value="${row.getEstTarjeta()}"/></td>
-                            <td><button class="editBtn btnModActCliente">🖋️</button></td>
+                            <td><button class="editBtn btnModActTarj">🖋️</button></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -56,7 +56,7 @@
             </div>
 
             <div id="ingTarjModal" class="modal">
-                <!-- Modal De Creación De Clientes -->
+                <!-- Modal De Creación De Tarjetas -->
                 <div class="modal-content">
                     <span class="close" id="closeIngTarjModal">&times;</span>
                     <div class="modal_form_container">
@@ -64,7 +64,25 @@
                         <p>Por favor diligencie los siguientes campos</p>
 
                         <form action="${pageContext.request.contextPath}/tarjetaServlet" method="post">
+                            <input type="hidden" value="insert" name="operation_type">
 
+                            <label for="tarjeta_cli_ins">Cliente Asociado a la Tarjeta</label>
+                            <select name="tarjeta_cli_ins" id="tarjeta_cli_ins">
+                                <c:forEach var="option" items="${clientesSinTar}">
+                                    <option value="${option.getIdCliente()}"><c:out value="${option.getIdCliente()} - ${option.getnCliente()} ${option.getApelCliente()}"/></option>
+                                </c:forEach>
+                            </select>
+
+                            <label for="tarjeta_sald_ins">Saldo Actual de la Tarjeta</label>
+                            <input required type="text" name="tarjeta_sald_ins" id="tarjeta_sald_ins">
+
+                            <label for="tarjeta_est_ins">Estado De La Tarjeta</label>
+                            <select name="tarjeta_est_ins" id="tarjeta_est_ins">
+                                <option selected value="activo">Activo</option>
+                                <option value="activo">Inactiva</option>
+                            </select>
+
+                            <button type="submit">Registrar Datos</button>
                         </form>
 
                     </div>
@@ -74,7 +92,7 @@
             </div>
 
             <div id="actTarjModal" class="modal">
-                <!-- Modal De Creación De Tarjetas -->
+                <!-- Modal De Actualización De Tarjetas -->
                 <div class="modal-content">
                     <span class="close" id="closeActTarjModal">&times;</span>
                     <div class="modal_form_container">
@@ -82,22 +100,27 @@
                         <p>Por favor diligencie los siguientes campos</p>
 
                         <form action="${pageContext.request.contextPath}/tarjetaServlet" method="post">
-                            <input type="hidden" value="insert" name="operation_type">
+                            <input type="hidden" value="update" name="operation_type">
+                            <input type="hidden" name="tarjeta_id_upd" id="tarjeta_id_upd">
 
-                            <label for="tarjeta_cli_ins">Cliente Asociado a la Tarjeta</label>
-                            <select name="tarjeta_cli_ins" id="tarjeta_cli_ins">
+                            <label for="tarjeta_cli_upd">Cliente Asociado a la Tarjeta</label>
+                            <select name="tarjeta_cli_upd" id="tarjeta_cli_upd">
 
-                                <option selected></option>
-
+                                <c:forEach var="option" items="${clientesSinTar}">
+                                    <option value="${option.getIdCliente()}"><c:out value="${option.getIdCliente()} - ${option.getnCliente()} ${option.getApelCliente()}"/></option>
+                                </c:forEach>
                             </select>
 
-                            <label for="client_nom_ins">Nombres Del Cliente</label>
-                            <input required type="text" name="client_nom_ins" id="client_nom_ins">
+                            <label for="tarjeta_sald_upd">Saldo Actual de la Tarjeta</label>
+                            <input required type="text" name="tarjeta_sald_upd" id="tarjeta_sald_upd">
 
-                            <label for="client_apel_ins">Apellidos del Cliente</label>
-                            <input required type="text" name="client_apel_ins" id="client_apel_ins">
+                            <label for="tarjeta_est_upd">Estado De La Tarjeta</label>
+                            <select name="tarjeta_est_upd" id="tarjeta_est_upd">
+                                <option selected value="activo">Activo</option>
+                                <option value="activo">Inactiva</option>
+                            </select>
 
-                            <button type="submit">Registrar Datos</button>
+                            <button type="submit">Actualizar Datos</button>
                         </form>
 
                     </div>
@@ -122,5 +145,6 @@
     </c:choose>
 </section>
 <script src="js/modalIngTarj.js"></script>
+<script src="js/modalUpdTarj.js"></script>
 </body>
 </html>

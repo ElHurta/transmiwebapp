@@ -14,6 +14,12 @@ public class Tarjeta {
         this.cliente = cliente;
     }
 
+    public Tarjeta(double saldoTarjeta, String estTarjeta, Cliente cliente) {
+        this.saldoTarjeta = saldoTarjeta;
+        this.estTarjeta = estTarjeta;
+        this.cliente = cliente;
+    }
+
     public int getIdTarjeta() {
         return idTarjeta;
     }
