@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="menu_card">
-                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                        <a href="${pageContext.request.contextPath}/rutasServlet">
                             <img src="assets/img/ruta.svg">
                             <p>Rutas</p>
                         </a>

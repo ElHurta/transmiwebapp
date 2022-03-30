@@ -13,6 +13,12 @@ public class Ruta {
         this.horaEndRuta = horaEndRuta;
     }
 
+    public Ruta(String nRuta, String horaIniRuta, String horaEndRuta) {
+        this.nRuta = nRuta;
+        this.horaIniRuta = horaIniRuta;
+        this.horaEndRuta = horaEndRuta;
+    }
+
     public int getIdRuta() {
         return idRuta;
     }
