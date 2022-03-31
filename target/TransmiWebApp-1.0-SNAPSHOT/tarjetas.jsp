@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="assets/css/menus.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-
+    <link rel="icon" href="assets/img/transmiLogo.svg">
 </head>
 <body>
 <%@include file='templates/navbar.html'%>

@@ -16,6 +16,7 @@
     <title>Menu Principal - TransmiApp</title>
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/mainMenu.css">
+    <link rel="icon" href="assets/img/transmiLogo.svg">
 </head>
 <body>
     <%@include file='templates/navbar.html'%>
