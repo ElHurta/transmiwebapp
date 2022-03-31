@@ -10,9 +10,13 @@ public class Conexion {
     private static Conexion instancia;
     private static Connection connection;
 
+    /**
+     * Se debe acceder a esta conexión desde el método de obtención de instancia:
+     */
     private Conexion(){
         try
         {
+            // Cadena de Conexión a base de datos en MySQL
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/TransmiDB",

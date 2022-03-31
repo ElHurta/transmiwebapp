@@ -44,7 +44,7 @@
                             <td><c:out value="${row.getnRuta()}"/></td>
                             <td><c:out value="${row.getHoraIniRuta()}"/></td>
                             <td><c:out value="${row.getHoraEndRuta()}"/></td>
-                            <td><button class="editBtn">Ver Paradas</button></td>
+                            <td><button class="editBtn btnModShowParadas">Ver Paradas</button></td>
                             <td><button class="editBtn btnModActRuta">🖋️</button></td>
 
                         </tr>
@@ -112,6 +112,32 @@
 
             </div>
 
+            <div id="showParadasModal" class="modal">
+                <!-- Modal De Actualización De Rutas -->
+                <div class="modal-content">
+                    <span class="close" id="closeShowParadas">&times;</span>
+                    <div class="modal_form_container">
+                        <h1 id="paradas_title"> Paradas de la ruta: </h1>
+                        <table class="queryTable">
+                            <!-- Cabeceras -->
+                            <thead>
+                                <tr>
+                                    <th>Ruta</th>
+                                    <th>Paradas</th>
+                                </tr>
+                            </thead>
+
+
+                            <!-- Cuerpo -->
+                            <tbody id="testBody"></tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
         </c:when>
         <c:when test="${sessionScope.Logged=='false'}">
             <div class="login_warning">
@@ -127,7 +153,6 @@
         </c:otherwise>
     </c:choose>
 </section>
-<script src="js/modalIngParada.js"></script>
-<script src="js/modalUpdParada.js"></script>
+<script src="js/modalParadas.js"></script>
 </body>
 </html>

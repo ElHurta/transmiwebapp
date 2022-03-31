@@ -9,11 +9,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Clase DAO asociada a la clase de Modelo Cliente, enlaza la parte lógica del aplicativo con la capa de datos
+ */
 public class ClienteDAO {
     Operaciones op;
 
     public ClienteDAO() {op = new Operaciones();}
 
+    /**
+     * Método de consulta completa de clientes:
+     * @Return ArrayList<Cliente> Se obtiene un arreglo que contiene a todos los Clientes registrados
+     */
     public ArrayList<Cliente> queryAllClients(){
         ArrayList<Cliente> clientsArray = new ArrayList<>();
         try {

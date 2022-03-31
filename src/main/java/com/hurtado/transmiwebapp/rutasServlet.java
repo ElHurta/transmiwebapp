@@ -3,6 +3,7 @@ package com.hurtado.transmiwebapp;
 import com.google.gson.Gson;
 import data.DAO.ParadaDAO;
 import data.DAO.RutaDAO;
+import data.DAO.RutaParadaDAO;
 import model.Parada;
 import model.Ruta;
 
@@ -21,8 +22,6 @@ public class rutasServlet extends HttpServlet {
 
         if(misession.getAttribute("Logged") != null){
             if(misession.getAttribute("Logged").equals("true")){
-
-                ParadaDAO paradaDAO = new ParadaDAO();
                 RutaDAO rutaDAO = new RutaDAO();
 
                 if(request.getParameter("rutaId")!=null){
@@ -32,6 +31,13 @@ public class rutasServlet extends HttpServlet {
                     response.setContentType("application/json");
 
                     out.print(rutaObtained);
+                } else if(request.getParameter("paradasBy")!=null){
+                    RutaParadaDAO rutaParadaDAO = new RutaParadaDAO();
+                    String paradasObtained = new Gson().toJson(rutaParadaDAO.queryAllParadasByRuta(request.getParameter("paradasBy")));
+                    PrintWriter out = response.getWriter();
+                    response.setContentType("application/json");
+
+                    out.print(paradasObtained);
                 } else {
                     ArrayList<Ruta> rutasList = rutaDAO.queryAllRutas();
                     request.setAttribute("rutasList", rutasList);
@@ -39,7 +45,6 @@ public class rutasServlet extends HttpServlet {
 
                     rd.forward(request, response);
                 }
-
             } else{
                 response.sendRedirect("/mainView.jsp");
             }
