@@ -27,7 +27,7 @@
                 <div class="menu_grid">
 
                     <div class="menu_card">
-                        <a href="${pageContext.request.contextPath}/clientsServlet">
+                        <a href="${pageContext.request.contextPath}/busesServlet">
                             <img src="assets/img/bus.svg">
                             <p>Buses</p>
                         </a>

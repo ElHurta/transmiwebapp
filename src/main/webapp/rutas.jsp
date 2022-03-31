@@ -69,8 +69,16 @@
                         <form action="${pageContext.request.contextPath}/rutasServlet" method="post">
                             <input type="hidden" value="insert" name="operation_type" id="operation_type">
 
-                            <label for="parada_nom_ins">Nombre De La Ruta</label>
-                            <input required type="text" name="parada_nom_ins" id="parada_nom_ins">
+                            <label for="ruta_nom_ins">Nombre De La Ruta</label>
+                            <input required type="text" name="ruta_nom_ins" id="ruta_nom_ins">
+
+                            <label for="ruta_ini_ins">Hora de Inicio De La Ruta</label>
+                            <input required type="text" name="ruta_ini_ins" id="ruta_ini_ins">
+
+                            <label for="ruta_fin_ins">Hora de Finalización De La Ruta</label>
+                            <input required type="text" name="ruta_fin_ins" id="ruta_fin_ins">
+
+
 
                             <button type="submit">Registrar Datos</button>
                         </form>

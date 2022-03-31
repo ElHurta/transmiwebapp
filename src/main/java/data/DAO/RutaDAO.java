@@ -1,9 +1,12 @@
 package data.DAO;
 
+import data.Conexion;
 import data.Operaciones;
 import model.Cliente;
+import model.Parada;
 import model.Ruta;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -46,5 +49,23 @@ public class RutaDAO {
             System.out.println(ex);
         }
         return null;
+    }
+
+    public String insertRuta(Ruta rutaInsert){
+        try{
+            PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO ruta(n_ruta, hora_ini_ruta, hora_end_ruta) VALUES(?,?,?);");
+
+            preparedStatement.setString(1, rutaInsert.getnRuta());
+            preparedStatement.setString(2, rutaInsert.getHoraIniRuta());
+            preparedStatement.setString(3, rutaInsert.getHoraEndRuta());
+
+            preparedStatement.executeUpdate();
+
+            return "Inserción Completada con éxito";
+        } catch (SQLException ex){
+            System.out.println(ex);
+        }
+        return "No fue posible realizar la inserción del cliente, intentélo nuevamente";
     }
 }
