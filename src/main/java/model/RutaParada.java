@@ -3,10 +3,12 @@ package model;
 public class RutaParada {
     private Ruta ruta;
     private Parada parada;
+    private int posParada;
 
-    public RutaParada(Ruta ruta, Parada parada) {
+    public RutaParada(Ruta ruta, Parada parada, int posParada) {
         this.ruta = ruta;
         this.parada = parada;
+        this.posParada = posParada;
     }
 
     public Ruta getRuta() {
@@ -23,5 +25,9 @@ public class RutaParada {
 
     public void setParada(Parada parada) {
         this.parada = parada;
+    }
+
+    public int getPosParada() {
+        return posParada;
     }
 }

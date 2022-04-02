@@ -73,3 +73,23 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+#rutasParadasIngContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 80%;
+    margin-top: 1.5rem;
+}
+
+#draggCont div{
+    display: flex;
+    align-items: center;
+}
+
+#draggCont div span{
+    margin: 0 1rem;
+    color: #fc4242;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

@@ -36,9 +36,17 @@ public class paradasServlet extends HttpServlet {
                 } else {
                     ArrayList<Parada> paradasList = paradaDAO.queryAllParadas();
                     request.setAttribute("paradasList", paradasList);
-                    RequestDispatcher rd = request.getRequestDispatcher("/paradas.jsp");
 
-                    rd.forward(request, response);
+                    if(request.getParameter("allParadas")!=null){
+                        String paradasObtained = new Gson().toJson(paradasList);
+                        PrintWriter out = response.getWriter();
+                        response.setContentType("application/json");
+                        out.print(paradasObtained);
+                    } else {
+                        RequestDispatcher rd = request.getRequestDispatcher("/paradas.jsp");
+
+                        rd.forward(request, response);
+                    }
                 }
 
             } else{

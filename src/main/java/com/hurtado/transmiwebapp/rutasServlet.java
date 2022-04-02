@@ -4,8 +4,10 @@ import com.google.gson.Gson;
 import data.DAO.ParadaDAO;
 import data.DAO.RutaDAO;
 import data.DAO.RutaParadaDAO;
+import model.Cliente;
 import model.Parada;
 import model.Ruta;
+import model.RutaParada;
 import org.json.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 @WebServlet(name = "rutasServlet", value = "/rutasServlet")
@@ -38,7 +41,7 @@ public class rutasServlet extends HttpServlet {
                     out.print(rutaObtained);
                 } else if(request.getParameter("paradasBy")!=null){
                     RutaParadaDAO rutaParadaDAO = new RutaParadaDAO();
-                    String paradasObtained = new Gson().toJson(rutaParadaDAO.queryAllParadasByRuta(request.getParameter("paradasBy")));
+                    String paradasObtained = new Gson().toJson(rutaParadaDAO.queryAllRutaParadasByRuta(request.getParameter("paradasBy")));
                     PrintWriter out = response.getWriter();
                     response.setContentType("application/json");
 
@@ -60,20 +63,37 @@ public class rutasServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StringBuffer jb = new StringBuffer();
-        String line = null;
-        try {
-            BufferedReader reader = request.getReader();
-            while ((line = reader.readLine()) != null)
-                jb.append(line);
-        } catch (Exception e) { /*report an error*/ }
+        HttpSession misession = request.getSession();
 
-        try {
-            JSONObject jsonObject =  HTTP.toJSONObject(jb.toString());
-            System.out.println(jsonObject);
-        } catch (JSONException e) {
-            // crash and burn
-            throw new IOException("Error parsing JSON request string");
+        if(misession.getAttribute("Logged") != null){
+            if(request.getParameter("operation_type").equals("insert")){
+
+                RutaDAO rutaDAO = new RutaDAO();
+
+                Ruta rutaInsert = new Ruta(
+                        request.getParameter("ruta_nom_ins"),
+                        request.getParameter("ruta_ini_ins"),
+                        request.getParameter("ruta_fin_ins")
+                );
+
+                String[] paradasRuta = request.getParameter("ruta_paradas_ids_ins").split(",");
+
+                response.getWriter().write("<h1>"+rutaDAO.insertRuta(rutaInsert, paradasRuta)+"</h1>");
+                response.getWriter().write("<a href='/rutasServlet'>Regresar al Sitio</a>");
+
+            } else if(request.getParameter("operation_type").equals("update")){
+
+                ParadaDAO paradaDAO = new ParadaDAO();
+
+                Parada paradaUpdate = new Parada(
+                        request.getParameter("parada_nom_upd"),
+                        request.getParameter("parada_type_upd"));
+
+                response.getWriter().write("<h1>"+paradaDAO.updateParada(paradaUpdate, request.getParameter("parada_id_upd"))+"</h1>");
+                response.getWriter().write("<a href='/paradasServlet'>Regresar al Sitio</a>");
+            }
+        } else{
+            response.sendRedirect("/mainView.jsp");
         }
     }
 }

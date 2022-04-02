@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/menus.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="icon" href="assets/img/transmiLogo.svg">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
 </head>
 <body>
 <%@include file='templates/navbar.html'%>
@@ -58,6 +59,7 @@
                 <button id="btnModIngRuta">Crear Ruta</button>
             </div>
 
+
             <div id="ingRutaModal" class="modal">
                 <!-- Modal De Creación De Rutas -->
                 <div class="modal-content">
@@ -68,6 +70,7 @@
 
                         <form action="${pageContext.request.contextPath}/rutasServlet" method="post">
                             <input type="hidden" value="insert" name="operation_type" id="operation_type">
+                            <input type="hidden" name="ruta_paradas_ids_ins" id="ruta_paradas_ids_ins">
 
                             <label for="ruta_nom_ins">Nombre De La Ruta</label>
                             <input required type="text" name="ruta_nom_ins" id="ruta_nom_ins">
@@ -78,9 +81,20 @@
                             <label for="ruta_fin_ins">Hora de Finalización De La Ruta</label>
                             <input required type="text" name="ruta_fin_ins" id="ruta_fin_ins">
 
+                            <div id="rutasParadasIngContainer">
+                                <div id="draggCont">
+
+                                </div>
+                                <div class="rutasParadasIngCtr">
+                                    <select id="paradasSelector">
+
+                                    </select>
+                                    <button type="button" id="addParadaToList">Agregar Parada</button>
+                                </div>
+                            </div>
 
 
-                            <button type="submit">Registrar Datos</button>
+                            <button type="submit" onsubmit="">Registrar Datos</button>
                         </form>
 
                     </div>
@@ -162,5 +176,15 @@
     </c:choose>
 </section>
 <script src="js/modalParadas.js"></script>
+}<script src="js/modalIngRuta.js"></script>
+
+<script>
+    const dragArea = document.getElementById("draggCont");
+    new Sortable(dragArea, {
+        animation: 350
+        }
+    )
+</script>
+
 </body>
 </html>

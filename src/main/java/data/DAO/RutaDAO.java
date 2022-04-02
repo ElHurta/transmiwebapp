@@ -5,10 +5,12 @@ import data.Operaciones;
 import model.Cliente;
 import model.Parada;
 import model.Ruta;
+import model.RutaParada;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class RutaDAO {
@@ -51,16 +53,35 @@ public class RutaDAO {
         return null;
     }
 
-    public String insertRuta(Ruta rutaInsert){
+    public String insertRuta(Ruta rutaInsert, String[] paradasIds){
         try{
             PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO ruta(n_ruta, hora_ini_ruta, hora_end_ruta) VALUES(?,?,?);");
+                    "INSERT INTO ruta(n_ruta, hora_ini_ruta, hora_end_ruta) VALUES(?,?,?);", Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, rutaInsert.getnRuta());
             preparedStatement.setString(2, rutaInsert.getHoraIniRuta());
             preparedStatement.setString(3, rutaInsert.getHoraEndRuta());
 
+            RutaParadaDAO rutaParadaDAO = new RutaParadaDAO();
+            ParadaDAO paradaDAO = new ParadaDAO();
+
             preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            
+            int rutaId = 0;
+            if(resultSet.next()){
+                rutaId = resultSet.getInt(1);
+            }
+
+            int cont = 1;
+            for (String parada: paradasIds) {
+                rutaParadaDAO.insertRutaParada(new RutaParada(
+                        this.queryOneruta(rutaId+""),
+                        paradaDAO.queryOneParada(parada),
+                        cont
+                ));
+                cont++;
+            }
 
             return "Inserción Completada con éxito";
         } catch (SQLException ex){

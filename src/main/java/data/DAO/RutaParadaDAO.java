@@ -2,7 +2,6 @@ package data.DAO;
 
 import data.Conexion;
 import data.Operaciones;
-import model.Parada;
 import model.Ruta;
 import model.RutaParada;
 
@@ -16,16 +15,16 @@ public class RutaParadaDAO {
 
     public RutaParadaDAO() {op = new Operaciones();}
 
-    public ArrayList<RutaParada> queryAllParadasByRuta(String rutaID){
+    public ArrayList<RutaParada> queryAllRutaParadasByRuta(String rutaID){
         ArrayList<RutaParada> paradasArray = new ArrayList<>();
         try {
-            ResultSet resultSet = op.ConsultaEsp("SELECT * FROM rutaparada WHERE id_ruta = " + rutaID);
+            ResultSet resultSet = op.ConsultaEsp("SELECT * FROM rutaparada WHERE id_ruta = " + rutaID + " ORDER BY pos_parada");
             RutaDAO rutaDAO = new RutaDAO();
             Ruta rutaSearched = rutaDAO.queryOneruta(rutaID);
             ParadaDAO paradaDAO = new ParadaDAO();
             if(rutaSearched != null){
                 while(resultSet.next()){
-                    paradasArray.add(new RutaParada(rutaSearched, paradaDAO.queryOneParada(resultSet.getString(2))));
+                    paradasArray.add(new RutaParada(rutaSearched, paradaDAO.queryOneParada(resultSet.getString(2)), resultSet.getInt(3)));
                 }
             }
         } catch (SQLException ex){
@@ -34,21 +33,19 @@ public class RutaParadaDAO {
         return paradasArray;
     }
 
-    public String insertRutaParada(Ruta rutaInsert){
+    public void insertRutaParada(RutaParada rutaParada){
         try{
             PreparedStatement preparedStatement = Conexion.getInstance().getConnection().prepareStatement(
                     "INSERT INTO rutaparada VALUES(?,?,?);");
 
-            preparedStatement.setString(1, rutaInsert.getnRuta());
-            preparedStatement.setString(2, rutaInsert.getHoraIniRuta());
-            preparedStatement.setString(3, rutaInsert.getHoraEndRuta());
+            preparedStatement.setInt(1, rutaParada.getRuta().getIdRuta());
+            preparedStatement.setInt(2, rutaParada.getParada().getIdParada());
+            preparedStatement.setInt(3, rutaParada.getPosParada());
 
             preparedStatement.executeUpdate();
 
-            return "Inserción Completada con éxito";
         } catch (SQLException ex){
             System.out.println(ex);
         }
-        return "No fue posible realizar la inserción del cliente, intentélo nuevamente";
     }
 }
